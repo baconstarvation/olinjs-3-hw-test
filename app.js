@@ -32,6 +32,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/ingredient/new', ingredient.new);
+app.post('/ingredient/create', ingredient.create);
 
 // dont forget the hw2 dependencies + the change in 'if development' and a few other housekeeping things for templating
 
