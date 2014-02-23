@@ -25,22 +25,24 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
-
-// hw2 version of 'development only'. may sub it in after fixing an assortment of other issues
-/*
+// development only. hw2 version
 app.configure('development', function(){
 	app.use(express.errorHandler());
 });
+
+// development only. orig express template version; disabled in favor of the hw2 version above
+/*
+if ('development' == app.get('env')) {
+  app.use(express.errorHandler());
+}
 */
 
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/ingredient/new', ingredient.new);
 app.post('/ingredient/create', ingredient.create);
+app.get('/order/new', order.new);
+app.post('/order/create', order.create);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

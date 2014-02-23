@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	h1= title
+
+	form(action='/order/create', method='post')
+		| Beef
+		input(beef=checkbox)
+		| Lettuce
+		input(lettuce=checkbox)
+		| Ketchup
+		input(ketchup=checkbox)
+		| Mustard
+		input(mustard=checkbox)
+		| Buns
+		input(buns=checkbox)
+		button(type='submit')
+			| Submit

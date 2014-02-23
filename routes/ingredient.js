@@ -1,4 +1,4 @@
-var Ingredient = require('../models/models');
+var Ingredient = require('../models/ingredient');
 // require('../models/models');
 // var Ingredient = models.Ingredient;
 
