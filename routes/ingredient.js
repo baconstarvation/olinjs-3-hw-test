@@ -1,5 +1,6 @@
-require('../models/models.js');
-var Ingredient = models.Ingredient;
+var Ingredient = require('../models/models');
+// require('../models/models');
+// var Ingredient = models.Ingredient;
 
 
 exports.new = function (req, res) {

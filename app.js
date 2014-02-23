@@ -3,12 +3,13 @@
  * Module dependencies.
  */
 
-var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
-var path = require('path');
-var ingredient = require('./routes/ingredient');
+var express = require('express')
+	, routes = require('./routes')
+	, user = require('./routes/user')
+	, ingredient = require('./routes/ingredient')
+	, http = require('http')
+	, path = require('path')
+	, mongoose = require('mongoose');
 
 var app = express();
 
@@ -29,12 +30,17 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+// hw2 version of 'development only'. may sub it in after fixing an assortment of other issues
+/*
+app.configure('development', function(){
+	app.use(express.errorHandler());
+});
+*/
+
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/ingredient/new', ingredient.new);
 app.post('/ingredient/create', ingredient.create);
-
-// dont forget the hw2 dependencies + the change in 'if development' and a few other housekeeping things for templating
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
